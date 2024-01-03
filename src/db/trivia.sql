@@ -1,0 +1,22 @@
+DROP DATABASE IF EXISTS trivia;
+CREATE DATABASE trivia;
+
+USE trivia;
+
+CREATE TABLE users(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(250) NOT NULL,
+    surname VARCHAR(50) NOT NULL,
+    emai VARCHAR(250) NOT NULL,
+    username VARCHAR(250) NOT NULL,
+    points INT NULL
+)
+
+CREATE TABLE question(
+   id INT PRIMARY KEY AUTO_INCREMENT,
+   question VARCHAR(250) NOT NULL,
+   response1 VARCHAR(250) NOT NULL,
+   response2 VARCHAR(250) NOT NULL,
+   response3 VARCHAR(250) NOT NULL,
+   trueresponse VARCHAR(250) NOT NULL,
+)
