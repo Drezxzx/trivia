@@ -1,12 +1,32 @@
 import {Usedb} from "../models/sql.js"
 
 export  class Trivia {
-    static async getQuestion({id}){
-        const data = await Usedb.getQuestion({id})
+    static async getQuestion({user}){
+        const data = await Usedb.getQuestion({user})
         return data
     }
-    static async getTrueQuestion({id, userresponse}){
-        const data = await Usedb.getTrueQuestion({id, userresponse})
+    static async getTrueQuestion({id, userresponse,iduser}){
+        const data = await Usedb.getTrueQuestion({id, userresponse,iduser})
+        return data
+    }
+    static async login({email}){
+        const data = await Usedb.login({email})
+        return data
+    }
+    static async getPoints({id}){
+        const data = await Usedb.getPoints({id})
+        return data
+    }
+    static async updatePoints({id, points}){
+        const data = await Usedb.updatePoints({id, points})
+        return data
+    }
+    static async getEspesificQuestion({ id }){
+        const data = await Usedb.getEspesificQuestion({ id })
+        return data
+    }
+    static async insertUser({ email, username, password}){
+        const data = await Usedb.insertUser({ email, username, password})
         return data
     }
 }
