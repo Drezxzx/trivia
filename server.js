@@ -25,6 +25,9 @@ app.use(session({
 app.use(cors())
 app.use(morgan("dev"))
 app.use("/", routerTrivia)
+app.use((req, res)=>{
+    res.render("login")
+})
 
 
 
