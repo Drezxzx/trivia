@@ -3,32 +3,34 @@ window.addEventListener("DOMContentLoaded", () => {
    if (name) {
     name.forEach(input => {
         input.addEventListener("click", ()=>{
-            let spanlogin = document.querySelector("span")
-            spanlogin.textContent=""
+            let spanlogin = document.querySelector(".msg")
+            if (spanlogin) {
+                spanlogin.textContent=""
+            }
            const parentNode = input.parentNode
            let spanCloset = parentNode.querySelector("span")
            if (spanCloset) {
+            spanCloset.classList.add("hidden")
             spanCloset.textContent = ""
            }
         })
     });
    }
-    const formlogin = document.querySelector(".login");
+    const formlogin = document.querySelector(".btn");
    
     if (formlogin) {
-        formlogin.addEventListener("submit", async (e) => {
+        formlogin.addEventListener("click", async (e) => {
             e.preventDefault();
             const response = await login();
             console.log(response);
             if (response) {
-                
                 window.location.href = "/mainpage";
             }
         });
     }
-    const formCreate = document.querySelector(".Create");
+    const formCreate = document.querySelector(".btn-create");
     if (formCreate) {
-        formCreate.addEventListener("submit", async (e) => {
+        formCreate.addEventListener("click", async (e) => {
             e.preventDefault();
             const response = await createUser();
     
@@ -48,6 +50,11 @@ async function login() {
         email,
         password
     };
+    if (datarequest.email === "" || datarequest.password==="") {
+        
+        message.innerHTML="*Rellene todos los campos"
+        return false
+    }
     try {
         const data = await fetch("http://localhost:3000/login/", {
             method: "POST",
@@ -75,6 +82,7 @@ async function createUser() {
     let msgpassword = document.querySelector(".password-msg")
     console.log(msgpassword);
     let msgemail = document.querySelector(".email-msg")
+    let msgusername = document.querySelector(".username-msg")
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const username = document.getElementById("username").value;
@@ -83,6 +91,7 @@ async function createUser() {
         password,
         username
     };
+
     console.log(datarequest);
     try {
         const data = await fetch("http://localhost:3000/createuser", {
@@ -93,16 +102,23 @@ async function createUser() {
         
         if (data.ok) {
             const res = await data.json();
-            console.log(res);
-           if (res) {
-            if (!res) {
-                res.errors.forEach(element => {
+            if (res) {
+                console.log(res);
+                if (!res.success) {
+                    res.errors.forEach(element => {
+                    console.log(element);
                 element.path.map(error =>{
-                    console.log(error); 
+                    
                     if (error === "password") {
+                        msgpassword.classList.remove("hidden")
                         msgpassword.textContent= element.message
                     }else if(error === "email"){
+                        msgemail.classList.remove("hidden")
                         msgemail.textContent=element.message
+                    }
+                    else if(error === "username"){
+                        msgusername.classList.remove("hidden")
+                        msgusername.textContent=element.message
                     }
                 
                 })
@@ -118,7 +134,7 @@ async function createUser() {
         }
     } catch (error) {
         console.error(error);
-        return false;
+        
     }
     
 

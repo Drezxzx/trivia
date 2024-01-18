@@ -1,0 +1,138 @@
+@media (min-width: 700px) {
+    body {
+        font-size: 18px;
+        font-family: "Sacramento", sans-serif;
+        background-color: #010a01;
+        display: flex;
+        /* flex-direction: row-reverse; */
+        justify-content: center;
+        align-items: center;
+    }
+    footer {
+        /* border-top: 1px solid #808080ab; */
+        width: 6%;
+        padding: 2%;
+        height: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    form.login {
+        width: 33%;
+        height: 80%;
+        text-align: center;
+        justify-content: center;
+        border-radius: 20px;
+        display: flex;
+        padding: 8px;
+        align-items: center;
+        box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #bc13fe, 0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe;
+        flex-direction: column;
+        gap: 3%;
+    }
+    .input {
+        font-family: 'Segoe UI', sans-serif;
+        font-weight: bold;
+        display: flex;
+        margin: 0em 0 1em 0;
+        width: 72%;
+        /* height: 17%; */
+        color: white;
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+    }
+    form.Create {
+        width: 33%;
+        height: 83%;
+        /* text-align: center; */
+        justify-content: center;
+        border-radius: 20px;
+        display: flex;
+        padding: 8px;
+        align-items: center;
+        box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #bc13fe, 0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe;
+        flex-direction: column;
+        gap: 2%;
+    }
+    .user {
+        width: 46%;
+        height: 254px;
+        text-align: center;
+        justify-content: center;
+        border-radius: 20px;
+        display: flex;
+        padding: 5px;
+        box-shadow: rgb(83 21 157 / 94%) 0 0px 14px 5px;
+        flex-direction: column;
+    }
+    .wrapper {
+        padding: 5px;
+        width: 46%;
+        height: 20%;
+        display: flex;
+        justify-content: center;
+    }
+    .options {
+        /* background: burlywood; */
+        width: 100%;
+        height: 49%;
+        display: flex;
+        /* flex-direction: column; */
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        /* gap: 1%; */
+        row-gap: 12%;
+        margin-top: 2%;
+    }
+    section.question {
+        width: 74%;
+        height: 79%;
+        text-align: center;
+        justify-content: center;
+        border-radius: 20px;
+        display: flex;
+        padding: 8px;
+        align-items: center;
+        box-shadow: rgb(83 21 157 / 94%) 0 0px 14px 5px;
+        flex-direction: column;
+        gap: 5%;
+    }
+    div.result {
+        width: 30%;
+        cursor: pointer;
+        /* background: white; */
+        text-align: center;
+        padding: 2%;
+        box-shadow: rgb(83 21 157 / 94%) 0 0px 14px 5px;
+    }
+    .green{
+        box-shadow: green 0 0px 7px 2px;
+        width: 30%;
+        cursor: pointer;
+        /* background: white; */
+        text-align: center;
+        padding: 2%;
+ 
+      }
+      
+      .redd{
+        width: 30%;
+        cursor: pointer;
+        /* background: white; */
+        text-align: center;
+        padding: 2%;
+     
+        box-shadow: red 0 0px 7px 2px;
+      }
+      .menu {
+        padding: 14%;
+        display: flex;
+        border-radius: 22px;
+        background: black;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        /* gap: 46%; */
+    }
+}

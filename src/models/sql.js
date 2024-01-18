@@ -33,9 +33,9 @@ export class Usedb{
         const [data] = await connection.query("SELECT trueresponse,id FROM question WHERE id = ?",[id])
         if (data[0].trueresponse == userresponse) {
             const [result ]= await connection.query("INSERT INTO usercorrect(idquestion,iduser) VALUES(?,?)",[data[0].id, iduser ])
-            return result.affectedRows>0? true:false 
+            return result.affectedRows>0? {status : true, data: data[0].trueresponse}:false 
         }
-        return false
+        return data ? {status : false , data : data[0].trueresponse}: false
     }
     static async login({email}){
         const [data] = await connection.query(`SELECT username,id,points,password
@@ -60,7 +60,17 @@ export class Usedb{
     }
     static async insertUser({ email, username, password}){
         const [data] = await connection.query(`INSERT INTO users(email, username, password) VALUES(?,?,?)`,[email, username, password])
-        return data.affectedRows > 0 ?true :false
+        return data.affectedRows > 0 ?{success : true} :false
+    }
+    static async Qualification(){
+        const [data] = await connection.query(`SELECT username, points FROM users WHERE points != 0 ORDER BY  points DESC LIMIT 10 `)
+        return data ?data :false
+    }
+    static async getUser({email, username}){
+        const [data] = await connection.query(`SELECT 
+        COALESCE((SELECT username FROM users WHERE username = ?), "none") AS isusername,
+        COALESCE((SELECT email FROM users WHERE email = ?), "none") AS isemail;`, [username, email])
+        return data.length >0  ?data : false
     }
     
 }

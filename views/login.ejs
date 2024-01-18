@@ -4,22 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="/script/login.js"></script>
-    
+    <link rel="stylesheet" href="/style/create-login-user.css">
     <link rel="stylesheet" href="/style/index.css">
+    <link rel="stylesheet" href="/style/responsive.css">
+    <link href='https://fonts.googleapis.com/css?family=Sacramento:400' rel='stylesheet' type='text/css'>
     <title>login</title>
 </head>
 <body>
-
-    <form class="login">
-        <label for="email">Email o Username 
-            <input type="text" id="email" required>
-        </label>
-        <label for="password">Contraseña
-            <input type="text" id="password" required>
-        </label>
-        <a href="/createuser">¿ No tines cuenta ?Crea una</a>
+    <section class="wrapper-login">
+      <form class="login">
+        <div class="input">
+          <div class="tittle"><h1 class="neonText">
+          Iniciar Sección
+           </h1></div> 
+            <label for="name">Email o Username</label>
+            <input type="text" id="email" required autocomplete="">
+        </div>
+        <div class="input">
+            <label for="name">Contraseña</label>
+            <input type="password" id="password" required autocomplete="">
+        </div>
+        <a id="user" href="/createuser">¿No tines cuenta?Crea una</a>
         <span class="msg"></span>
-        <button>Confirmar</button>
+        <button class="btn" type="button">
+            <strong>Iniciar Sección</strong>
+            <div id="container-stars">
+              <div id="stars"></div>
+            </div>
+          
+            <div id="glow">
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+          </button>
     </form>
+</section>
 </body>
 </html>

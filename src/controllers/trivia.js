@@ -29,4 +29,12 @@ export  class Trivia {
         const data = await Usedb.insertUser({ email, username, password})
         return data
     }
+    static async Qualification(){
+        const data = await Usedb.Qualification()
+        return data
+    }
+    static async getUser({email, username}){
+        const data = await Usedb.getUser({email, username})
+        return data
+    }
 }

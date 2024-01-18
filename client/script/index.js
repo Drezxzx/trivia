@@ -56,7 +56,9 @@ async function printGame({options}) {
        
     nodeoption.innerHTML=""
     nodeoption.innerHTML+=`
-    <div class="principal-question"><p>${question}</p><p>${category}</p></div>
+    <div class="principal-question"> <div class="tittle"><h3 class="neonText">
+    ${question}
+     </h3></div> <p>${category}</p></div>
     
             <div class="options" id="${id}">
                 <div id="option1" class="result">${response1}</div>
@@ -68,7 +70,7 @@ async function printGame({options}) {
     
     }else{
 
-        nodeoption.innerHTML = `<h1> Juego finalizado<h1><a href="/mainpage">Volver al inicio</a>`
+        nodeoption.innerHTML = `<h1> Juego finalizado</h1><a href="/mainpage" class="mainpage">Volver al inicio</a>`
     }
 
 return true
@@ -78,23 +80,40 @@ function eventGame() {
     const options = document.querySelectorAll(".result")
     options.forEach(button => {
         button.addEventListener("click", async(e)=>{
+            const target = e.target
+          
             const userresponse = button.innerHTML
             const data = await checkResponse(userresponse)
             console.log(data);
-            if (data) {
+           
+            if (data.status) {
+                target.classList.remove("result")
+                target.classList.add("green")
                 await GameLifePoints.points(lifePoints)
                 lifePoints.quetion = 0
-                const game = await startApp()
+                setTimeout(async() => {
+                    await startApp()
+                }, 1200);
+                
             }else{
-                let node = e.target
-                console.log(node);
+                target.classList.remove("result")
+                target.classList.add("redd")
                const action = await GameLifePoints.deleteLife({target: e.target})
                lifePoints.quetion = 0
                setTimeout(async() => {
                 await startApp()
                }, 2000);
             }
-            
+            if (data.data) {
+                const options = document.querySelectorAll(".result")
+                options.forEach(result => {
+                    if (result.innerHTML === data.data) {
+                        console.log(result);
+                        result.classList.remove("result")
+                        result.classList.add("green")
+                    }
+                });
+            }
             
         })
     });

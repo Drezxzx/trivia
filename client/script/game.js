@@ -1,6 +1,5 @@
 class GameLifePoints {
     static async deleteLife ({target}){
-        
         const json = localStorage.getItem("life")
         const game = JSON.parse(json)
         let result = document.querySelectorAll(".result")
@@ -32,8 +31,8 @@ class GameLifePoints {
     static async endGame(game){
        const overlay = document.querySelector(".overlay") 
        overlay.classList.remove("hidden")     
-        overlay.innerHTML = `<div class="menu"><h1>Has perdido</h1>
-        <a href="/mainpage">Volver al menu</a></div>`
+        overlay.innerHTML = `<div class="menu"><h1 class="end-h1">Has perdido</h1>
+        <a href="/mainpage" class="end"><h3>Volver al menu</h3></a></div>`
     }
     static async points(game){
         let number = parseInt(game.points)

@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/script/main.js"></script>
     <link rel="stylesheet" href="/style/mainpage.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="/style/index.css">
+    <link rel="stylesheet" href="/style/responsive.css">
     <title>Main Page</title>
 </head>
 <body>
+    
     <main>
     <section>
         <% if (user) { %>
@@ -28,12 +32,15 @@
             </div>
           </button>
           </a>
-
+          <div class="wrapper">
+            <div class="qualification hidden"></div>
+          </div>
+          
         <% } %>
     </section>
     </main>
 
     
-    
+    <%- include('./partials/headers'); %>
 </body>
 </html>

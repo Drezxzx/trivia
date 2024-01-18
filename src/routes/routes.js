@@ -10,7 +10,8 @@ routerTrivia.get("/question/", async (req, res) => {
         const data = await Trivia.getQuestion({user: id});
         res.json(data);
     }else{
-    res.render("login")}
+    res.render("login")
+}
 });
 
 routerTrivia.get("/home/", async (req, res) => {
@@ -44,10 +45,10 @@ routerTrivia.post("/login", async (req, res) => {
                 req.session.user = user;
                 res.json({ success: true, message: "Inicio de sesión exitoso", user });
             } else {
-                res.json({ success: false, message: "Usuario o contraseña incorrectos" });
+                res.json({ success: false, message: "*Usuario o contraseña incorrectos" });
             }
         } else {
-            res.json({ success: false, message: "Usuario no encontrado" });
+            res.json({ success: false, message: "*Usuario no encontrado" });
         }
     } catch (error) {
         console.error(error);
@@ -77,7 +78,7 @@ routerTrivia.get("/mainpage/", (req, res) => {
     }
 });
 
-routerTrivia.get("/logout", (req, res) => {
+routerTrivia.get("/mainpage/logout", (req, res) => {
     req.session.destroy((err) => {
         if (err) {
             console.error(err);
@@ -102,14 +103,44 @@ routerTrivia.post("/game/updatepoints/", async(req, res) => {
 routerTrivia.get("/createuser", (req,res)=>{
     res.render("createuser")
 })
+routerTrivia.get("/mainpage/qualification", async(req,res)=>{
+        const data = await Trivia.Qualification()
+        res.json(data)
+})
 routerTrivia.post("/createuser", async(req, res) => {
+    let datasend = {
+        success : false,
+        errors : []
+    }
+    let userexisted = false
     try {
         const { email, username, password } = req.body;
-
+        const [isuserRegister] = await Trivia.getUser({email, username})
         const userData = userSchema.safeParse({ email, username, password });
-
         if (userData.success) {
-            const passwordHash = await bcrypt.hash(userData.data.password, 7);
+            if (isuserRegister) {
+                const {isusername, isemail} = isuserRegister 
+                console.log(isuserRegister);  
+                if (isemail !== "none") {
+                    userexisted = true
+                datasend.errors.push({
+                        validation: "email",
+                        message: "Correo electrónico en uso",
+                        path: [
+                           "email"
+                        ]}) 
+                }if ( isusername !== "none"){
+                    userexisted = true
+                    datasend.errors.push({
+                            validation: "username",
+                            message: "Nombre de usuario en uso",
+                            path: [
+                               "username"
+                            ]})
+                }
+             }
+             if (!userexisted) {
+                const passwordHash = await bcrypt.hash(userData.data.password, 7);
             const insertUser = await Trivia.insertUser({
                 email: userData.data.email,
                 username: userData.data.username,
@@ -117,12 +148,14 @@ routerTrivia.post("/createuser", async(req, res) => {
             });
 
             res.json(insertUser);
+             }else{
+                res.json(datasend)
+             }
         } else {
             res.json({ success: false, errors: userData.error.errors });
         }
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ success: false, error: "Error en el servidor" });
+       console.log(error);
     }
 });
 
