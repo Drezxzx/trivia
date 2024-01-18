@@ -1,12 +1,13 @@
 import mysql from "mysql2/promise"
 const config = {
-    host: 'localhost',
-    user: 'root', 
-    password: '', 
-    port: 3306,
-    database: 'trivia',
+    host: process.env.DBHOST ||'localhost',
+    user: process.env.DBUSER ||'root', 
+    password: process.env.DBPASSWORD ||'', 
+    port: process.env.DBPORT ||3306,
+    database: process.env.DBNAME ||'trivia',
 }
 const connection = await mysql.createConnection(config)
+
 export class Usedb{
     static async getQuestion({user}){
         const [count]= await connection.query(`SELECT q.id
