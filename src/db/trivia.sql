@@ -10,7 +10,7 @@ CREATE TABLE users(
     username VARCHAR(250) NOT NULL UNIQUE,
     password VARCHAR(250) NOT NULL,
     points INT NULL DEFAULT 0
-)
+);
 
 CREATE TABLE question(
    id INT PRIMARY KEY AUTO_INCREMENT,
@@ -21,7 +21,7 @@ CREATE TABLE question(
    response4 VARCHAR(250) NOT NULL,
    category VARCHAR(250) NOT NULL,
    trueresponse VARCHAR(250) NOT NULL
-)
+);
 
 CREATE TABLE usercorrect (
     iduser INT,

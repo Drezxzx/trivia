@@ -56,7 +56,7 @@ async function login() {
         return false
     }
     try {
-        const data = await fetch("http://localhost:3000/login/", {
+        const data = await fetch("https://trivia-ui0k.onrender.com/login/", {
             method: "POST",
             body: JSON.stringify(datarequest),
             headers: { "Content-type": "application/json" }
@@ -94,7 +94,7 @@ async function createUser() {
 
     console.log(datarequest);
     try {
-        const data = await fetch("http://localhost:3000/createuser", {
+        const data = await fetch("https://trivia-ui0k.onrender.com/createuser", {
             method: "POST",
             body: JSON.stringify(datarequest),
             headers: { "Content-type": "application/json" }
