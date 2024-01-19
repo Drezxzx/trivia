@@ -1,10 +1,10 @@
 import mysql from "mysql2/promise"
 const config = {
-    host: process.env.DBHOST ||'localhost',
-    user: process.env.DBUSER ||'root', 
-    password: process.env.DBPASSWORD ||'', 
+    host: process.env.DBHOST ||'brb2chl6qpl6va43wx6l-mysql.services.clever-cloud.com',
+    user: process.env.DBUSER ||'u2udz2akvvqdtdii', 
+    password: process.env.DBPASSWORD ||'mPmol1u1hpqAiI8E5PeQ', 
     port: process.env.DBPORT ||3306,
-    database: process.env.DBNAME ||'trivia',
+    database: process.env.DBNAME ||'brb2chl6qpl6va43wx6l',
 }
 const connection = await mysql.createConnection(config)
 
@@ -59,10 +59,16 @@ export class Usedb{
         const [data] = await connection.query(`SELECT id,category,question,response1,response2,response3,response3,response4 FROM question WHERE id = ?`,[id ])
         return data ?data :false
     }
-    static async insertUser({ email, username, password}){
-        const [data] = await connection.query(`INSERT INTO users(email, username, password) VALUES(?,?,?)`,[email, username, password])
-        return data.affectedRows > 0 ?{success : true} :false
-    }
+   
+static async insertUser({ email, username, password }) {
+   
+    const [data] = await connection.query(`INSERT INTO users(email, username, password) VALUES(?,?,?)`, [email, username, password]);
+
+    
+   
+    return data.affectedRows > 0 ? { success: true } : false;
+}
+
     static async Qualification(){
         const [data] = await connection.query(`SELECT username, points FROM users WHERE points != 0 ORDER BY  points DESC LIMIT 10 `)
         return data ?data :false

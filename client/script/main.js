@@ -39,6 +39,7 @@ window.addEventListener("DOMContentLoaded",async()=>{
  }
  async function getPoints() {
     let pointsnode = document.querySelector(".points")
+    console.log(location.href+`/userpoints/`);
     const req = await fetch(location.href+`/userpoints/`)
     try {
         const {points} = await req.json()

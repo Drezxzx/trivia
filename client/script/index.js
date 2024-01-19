@@ -23,9 +23,9 @@ window.addEventListener("DOMContentLoaded", async()=>{
 async function startApp() {
     let req = null
     if (lifePoints.quetion > 0 && lifePoints.quetion) {
-        req = await fetch(location.href+`/question/${lifePoints.quetion}`)
+        req = await fetch("http://"+location.host+`/question/${lifePoints.quetion}`)
     }else{
-     req = await fetch(location.href+`/question/`)
+     req = await fetch("http://"+location.host+`/question/`)
     }
     try {
         if (req) {
@@ -122,7 +122,7 @@ function eventGame() {
 async function checkResponse(userresponse) {
   
     const question = document.querySelector(".options").id
-    const req = await fetch(location.href+`/question/${question}`,{
+    const req = await fetch("http://"+location.host+`/question/${question}`,{
         method : "POST",
         body   : JSON.stringify({userresponse}),
         headers : {
