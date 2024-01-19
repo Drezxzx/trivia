@@ -56,7 +56,7 @@ async function login() {
         return false
     }
     try {
-        const data = await fetch("http://"+location.host+"/login/", {
+        const data = await fetch("https://"+location.host+"/login/", {
             method: "POST",
             body: JSON.stringify(datarequest),
             headers: { "Content-type": "application/json" }
@@ -92,9 +92,9 @@ async function createUser() {
         username
     };
   
-console.log("http://"+location.host+"/createuser");
+console.log("https://"+location.host+"/createuser");
     try {
-        const data = await fetch("http://"+location.host+"/createuser", {
+        const data = await fetch("https://"+location.host+"/createuser", {
             method: "POST",
             body: JSON.stringify(datarequest),
             headers: { "Content-type": "application/json" }
