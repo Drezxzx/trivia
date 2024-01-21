@@ -11,7 +11,7 @@ window.addEventListener("DOMContentLoaded",async()=>{
         segundo : "🥈",
         tercer  : "🥉"
     }
-    const data = await fetch(location.href+"/qualification")
+    const data = await fetch(location.origin+"/qualification")
     try {
         const res = await data.json()
         console.log(res);
@@ -39,8 +39,8 @@ window.addEventListener("DOMContentLoaded",async()=>{
  }
  async function getPoints() {
     let pointsnode = document.querySelector(".points")
-    console.log(location.href+`/userpoints/`);
-    const req = await fetch(location.href+`/userpoints/`)
+    console.log(location.origin+`/userpoints/`);
+    const req = await fetch(location.origin+`/userpoints`)
     try {
         const {points} = await req.json()
         console.log(points);

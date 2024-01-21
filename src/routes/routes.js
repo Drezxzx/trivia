@@ -22,7 +22,13 @@ routerTrivia.get("/home/", async (req, res) => {
     }
     
 });
-
+routerTrivia.get("/", (req, res)=>{
+    if (req.session.user) {
+        res.render("mainpage",{user:req.session.user})
+    }else{
+        res.render("login")
+    }
+})
 routerTrivia.get("/game/", async (req, res) => {
     if (req.session.user) {
         const {id} = req.session.user
@@ -88,7 +94,7 @@ routerTrivia.get("/mainpage/logout", (req, res) => {
         }
     });
 });
-routerTrivia.get("/mainpage/userpoints/", async(req, res) => {
+routerTrivia.get("/userpoints", async(req, res) => {
     const{id}= req.session.user
     const data = await Trivia.getPoints({id})
     res.json(data)
@@ -103,7 +109,7 @@ routerTrivia.post("/updatepoints/", async(req, res) => {
 routerTrivia.get("/createuser", (req,res)=>{
     res.render("createuser")
 })
-routerTrivia.get("/mainpage/qualification", async(req,res)=>{
+routerTrivia.get("/qualification", async(req,res)=>{
         const data = await Trivia.Qualification()
         res.json(data)
 })
