@@ -29,7 +29,7 @@ form.Create {
 }
 form.login {
     width: 85%;
-    height: 80%;
+    height: 85%;
     text-align: center;
     justify-content: center;
     border-radius: 20px;
@@ -97,7 +97,7 @@ span.password-msg {
     width: 13rem;
     /* margin-top: -29px; */
     overflow: hidden;
-    height: 3rem;
+    height: 4rem;
     background-size: 300% 300%;
     backdrop-filter: blur(1rem);
     border-radius: 5rem;
@@ -114,7 +114,7 @@ span.password-msg {
     align-items: center;
     width: 13rem;
     overflow: hidden;
-    height: 3.5rem;
+    height: 4.5rem;
     background-size: 300% 300%;
     backdrop-filter: blur(1rem);
     border-radius: 5rem;
