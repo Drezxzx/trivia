@@ -38,7 +38,8 @@ class GameLifePoints {
         let number = parseInt(game.points)
         number+=50
         game.points = number
-        const data = await fetch(location.href+"/updatepoints/",{method : "POST",
+        console.log(location.origin+"/updatepoints/");
+        const data = await fetch(location.origin+"/updatepoints/",{method : "POST",
         body:JSON.stringify({points :game.points}),
         headers : {"Content-type" : "application/json"}
     })

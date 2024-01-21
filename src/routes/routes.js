@@ -93,7 +93,7 @@ routerTrivia.get("/mainpage/userpoints/", async(req, res) => {
     const data = await Trivia.getPoints({id})
     res.json(data)
 });
-routerTrivia.post("/game/updatepoints/", async(req, res) => {
+routerTrivia.post("/updatepoints/", async(req, res) => {
     const {id} = req.session.user
     const {points} = req.body
     const data = await Trivia.updatePoints({id , points})
