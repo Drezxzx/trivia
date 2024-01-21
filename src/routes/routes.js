@@ -84,7 +84,7 @@ routerTrivia.get("/mainpage/", (req, res) => {
     }
 });
 
-routerTrivia.get("/mainpage/logout", (req, res) => {
+routerTrivia.get("/logout", (req, res) => {
     req.session.destroy((err) => {
         if (err) {
             console.error(err);

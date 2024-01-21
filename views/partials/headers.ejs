@@ -7,7 +7,7 @@
     const logout = document.querySelector(".logout")
     logout.addEventListener("click", async(e)=>{
         e.preventDefault()
-        const data = await fetch("https://"+location.host + "/logout")
+        const data = await fetch(location.origin+ "/logout")
         if (data) {
             location.reload()
         }
