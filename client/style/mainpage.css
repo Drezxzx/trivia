@@ -33,22 +33,27 @@ section {
     box-shadow: rgb(83 21 157 / 94%) 0 0px 14px 5px;
     flex-direction: column;
 }
-.btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 13rem;
-    overflow: hidden;
-    height: 3rem;
-    background-size: 300% 300%;
-    backdrop-filter: blur(1rem);
-    border-radius: 5rem;
-    transition: 0.5s;
-    background-color: rgb(142 81 234 / 36%);
-    border: double 4px transparent;
-    background-image: linear-gradient(rgb(83 21 157 / 94%)), linear-gradient(137.48deg, #481166 10%,#FE53BB 45%, #8F51EA 67%, #0044ff 87%);
-    background-origin: border-box;
-    background-clip: content-box, border-box;
+a.play {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+button.btn {
+  width: 50%;
+  padding: 4%;
+  margin-top: 10%;
+  background: #2f0d40;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: 0;
+  border-radius: 23px;
+  transition: background 0.3s ease, box-shadow 0.3s ease; 
+}
+button.btn:hover,
+button.btn:active {
+  background: #15081c;
+  box-shadow: 0 0 0.2rem #fff, 0 0 0.1rem #fff, 0 0 2rem #bc13fe, 0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 0.3rem #bc13fe;
 }
 h1 {
     font-size: 62px;
@@ -76,14 +81,14 @@ strong.points {
     justify-content: center;
 }
 .overlayy {
-    width: 100%;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5%;
-    height: 71%;
-    top: 36px;
+  width: 81%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  height: 71%;
+  top: 81px;
 }
   body {
     font-size: 18px;
