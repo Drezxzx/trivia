@@ -16,7 +16,7 @@ window.addEventListener("DOMContentLoaded", () => {
         })
     });
    }
-    const formlogin = document.querySelector(".btn");
+    const formlogin = document.querySelector(".login");
    
     if (formlogin) {
         formlogin.addEventListener("click", async (e) => {
