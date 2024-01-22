@@ -74,7 +74,7 @@
     }
     .options {
         /* background: burlywood; */
-        width: 100%;
+        width: 82%;
         height: 49%;
         display: flex;
         /* flex-direction: column; */
@@ -86,7 +86,7 @@
         margin-top: 2%;
     }
     section.question {
-        width: 74%;
+        width: 67%;
         height: 79%;
         text-align: center;
         justify-content: center;
@@ -99,11 +99,11 @@
         gap: 5%;
     }
     div.result {
-        width: 30%;
+        width: 25%;
         cursor: pointer;
         /* background: white; */
         text-align: center;
-        padding: 2%;
+        padding: 1%;
         box-shadow: rgb(83 21 157 / 94%) 0 0px 14px 5px;
     }
     .green{
@@ -135,4 +135,5 @@
         align-items: center;
         /* gap: 46%; */
     }
+    
 }

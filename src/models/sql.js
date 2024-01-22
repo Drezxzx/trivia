@@ -12,14 +12,11 @@ export class Usedb{
     static async getQuestion({user}){
         const [count]= await connection.query(`SELECT q.id
         FROM question q
-        JOIN (
-            SELECT FLOOR(RAND() * COUNT(id)) AS random_id
-            FROM question
-        ) r ON q.id >= r.random_id
         LEFT JOIN usercorrect uc ON q.id = uc.idquestion AND uc.iduser = ?
         WHERE uc.idquestion IS NULL
-        ORDER BY q.id
-        LIMIT 1`, [user])
+        ORDER BY RAND()
+        LIMIT 1;
+        `, [user])
 
         if (count.length > 0) {
             const id = count[0].id

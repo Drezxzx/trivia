@@ -4,6 +4,7 @@
         font-family: "Sacramento", sans-serif;
         background-color: #010a01;
         display: flex;
+        overflow: hidden;
         flex-direction: row-reverse;
         justify-content: center;
         align-items: center;
@@ -56,7 +57,7 @@
     }
     .user {
         width: 46%;
-        height: 254px;
+        height: 38%;
         text-align: center;
         justify-content: center;
         border-radius: 20px;
@@ -68,7 +69,7 @@
     .wrapper {
         padding: 5px;
         width: 46%;
-        height: 20%;
+        height: 27%;
         display: flex;
         justify-content: center;
     }
@@ -84,6 +85,32 @@
         gap: 19%;
         row-gap: 9%;
         margin-top: 2%;
+    }
+    button.btn {
+        width: 10%;
+        padding: 1%;
+        margin-top: 0%;
+        background: #2f0d40;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        border: 0;
+        border-radius: 23px;
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    .qualification {
+        cursor: pointer;
+        width: 97%;
+        height: 100%;
+        /* padding: 80%; */
+        z-index: 1;
+        text-align: center;
+        justify-content: space-around;
+        border-radius: 20px;
+        display: flex;
+        padding: 5px;
+        box-shadow: rgb(83 21 157 / 94%) 0 0px 14px 5px;
+        flex-direction: column;
     }
     section.question {
         width: 85%;
@@ -118,5 +145,12 @@
         flex-direction: column;
         align-items: center;
         /* gap: 46%; */
+    }
+    
+    
+
+    button.login:hover, button.login:active, button.btn-create:hover, button.btn-create:active {
+        background: #15081c;
+        box-shadow: 0 0 0.2rem #fff, 0 0 0.1rem #fff, 0 0 2rem #bc13fe, 0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 0.3rem #bc13fe;
     }
 }

@@ -90,7 +90,18 @@ span.password-msg {
     padding: 9px;
     top: -7vh;
 }
-
+button.login {
+    width: 54%;
+    padding: 5%;
+    margin-top: 0%;
+    background: #2f0d40;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 23px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
 .input {
     font-family: 'Segoe UI', sans-serif;
     font-weight: bold;
@@ -217,6 +228,8 @@ button.btn-create {
     border-radius: 23px;
     transition: background 0.3s ease, box-shadow 0.3s ease; 
 }
+button.login:hover,
+button.login:active,
 button.btn:hover,
 button.btn:active,
 button.btn-create:hover,
