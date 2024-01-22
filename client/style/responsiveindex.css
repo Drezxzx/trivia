@@ -74,7 +74,7 @@
     }
     .options {
         /* background: burlywood; */
-        width: 82%;
+        width: 89%;
         height: 49%;
         display: flex;
         /* flex-direction: column; */
@@ -99,16 +99,16 @@
         gap: 5%;
     }
     div.result {
-        width: 25%;
+        width: 24%;
         cursor: pointer;
         /* background: white; */
         text-align: center;
-        padding: 1%;
+        padding: 2%;
         box-shadow: rgb(83 21 157 / 94%) 0 0px 14px 5px;
     }
     .green{
         box-shadow: green 0 0px 7px 2px;
-        width: 30%;
+        width: 24%;
         cursor: pointer;
         /* background: white; */
         text-align: center;
@@ -117,7 +117,7 @@
       }
       
       .redd{
-        width: 30%;
+        width: 24%;
         cursor: pointer;
         /* background: white; */
         text-align: center;
