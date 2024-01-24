@@ -23,7 +23,7 @@ window.addEventListener("DOMContentLoaded", () => {
         formlogin.addEventListener("click", async (e) => {
             e.preventDefault();
             const response = await login();
-            console.log(response);
+            
             if (response) {
                 window.location.href = "/mainpage";
             }
@@ -62,11 +62,11 @@ async function login() {
             body: JSON.stringify(datarequest),
             headers: { "Content-type": "application/json" }
         });
-        console.log(data);
+      
         if (data) {
             const res = await data.json();
             if (!res.success) {
-                console.log(res.message);
+                
                 message.innerHTML= res.message
                 return res.success;
             }else{return res.success}
@@ -81,7 +81,7 @@ async function login() {
 }
 async function createUser() {
     let msgpassword = document.querySelector(".password-msg")
-    console.log(msgpassword);
+   
     let msgemail = document.querySelector(".email-msg")
     let msgusername = document.querySelector(".username-msg")
     const email = document.getElementById("email").value;
@@ -93,7 +93,7 @@ async function createUser() {
         username
     };
   
-console.log("https://"+location.host+"/createuser");
+
     try {
         const data = await fetch(location.origin+"/createuser", {
             method: "POST",
@@ -104,10 +104,10 @@ console.log("https://"+location.host+"/createuser");
         if (data.ok) {
             const res = await data.json();
             if (res) {
-                console.log(res);
+                
                 if (!res.success) {
                     res.errors.forEach(element => {
-                    console.log(element);
+                    
                 element.path.map(error =>{
                     
                     if (error === "password") {

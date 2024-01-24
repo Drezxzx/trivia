@@ -9,7 +9,7 @@ if (localStorage.getItem("life")
 window.addEventListener("DOMContentLoaded", async()=>{
     const game = await startApp()
     const question = document.querySelector(".options").id
-    console.log(question);
+   
     const point = document.querySelector(".points")
     if (!lifePoints.quetion) {
         lifePoints.quetion = question 
@@ -26,16 +26,16 @@ async function startApp() {
         
         req = await fetch(location.origin+`/question/${lifePoints.quetion}`)
     }else{
-        console.log(location.origin+`/question/`);
+      
      req = await fetch(location.origin+`/question/`)
     }
     try {
         if (req) {
             const res = await req.json()
-            console.log(res);
+         
             if (!res.status) {
                 const game = printGame({options : res[0]})
-                console.log();
+           
                 if (game) {
                  eventGame()
                  return true
@@ -50,7 +50,7 @@ async function startApp() {
 }
 
 async function printGame({options}) {
-    console.log(options);
+    
     const nodeoption = document.querySelector(".question")
     if (!options.status) {
         const {question,response1,response2,response3,response4,category,id} = options
@@ -86,7 +86,7 @@ function eventGame() {
           
             const userresponse = button.innerHTML
             const data = await checkResponse(userresponse)
-            console.log(data);
+          
            
             if (data.status) {
                 target.classList.remove("result")
@@ -110,7 +110,7 @@ function eventGame() {
                 const options = document.querySelectorAll(".result")
                 options.forEach(result => {
                     if (result.innerHTML === data.data) {
-                        console.log(result);
+                       
                         result.classList.remove("result")
                         result.classList.add("green")
                     }
@@ -134,7 +134,7 @@ async function checkResponse(userresponse) {
     try {
         if (req) {
             const data = await req.json()
-            console.log(data);
+            
             return data
         }
     } catch (error) {

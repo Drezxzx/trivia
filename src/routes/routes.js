@@ -126,7 +126,7 @@ routerTrivia.post("/createuser", async(req, res) => {
         if (userData.success) {
             if (isuserRegister) {
                 const {isusername, isemail} = isuserRegister 
-                console.log(isuserRegister);  
+           
                 if (isemail !== "none") {
                     userexisted = true
                 datasend.errors.push({

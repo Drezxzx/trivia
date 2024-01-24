@@ -15,7 +15,7 @@ class GameLifePoints {
         this.uploadGame(game) 
     }
     static async uploadGame(game){
-        console.log(game);
+        
         let points = document.querySelector(".points")
         points.innerHTML = game.points
         const heart = "❤️"
@@ -38,14 +38,14 @@ class GameLifePoints {
         let number = parseInt(game.points)
         number+=50
         game.points = number
-        console.log(location.origin+"/updatepoints/");
+
         const data = await fetch(location.origin+"/updatepoints/",{method : "POST",
         body:JSON.stringify({points :game.points}),
         headers : {"Content-type" : "application/json"}
     })
     try {
         const res = await data.json()
-        console.log(res);
+     
         } catch (error) {
             console.error(error);
         }

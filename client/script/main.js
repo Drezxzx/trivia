@@ -14,7 +14,7 @@ window.addEventListener("DOMContentLoaded",async()=>{
     const data = await fetch(location.origin+"/qualification")
     try {
         const res = await data.json()
-        console.log(res);
+        
         if (res.length > 0) {
             nodequalification.classList.remove("hidden")
             nodequalification.innerHTML +=`<div class="tittle"><h3 class="neonText">
@@ -39,11 +39,11 @@ window.addEventListener("DOMContentLoaded",async()=>{
  }
  async function getPoints() {
     let pointsnode = document.querySelector(".points")
-    console.log(location.origin+`/userpoints/`);
+    
     const req = await fetch(location.origin+`/userpoints`)
     try {
         const {points} = await req.json()
-        console.log(points);
+   
         pointsnode.innerHTML = points 
         return points
     } catch (error) {
